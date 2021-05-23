@@ -1,23 +1,13 @@
 import React, { Component } from 'react';
+import 'semantic-ui-css/semantic.min.css'
 import './app.css';
+import MainContainer from './containers/MainContainer'; 
 //import ReactImage from './react.png';
 
 export default class App extends Component {
-  state = { username: null };
-
-  componentDidMount() {
-    fetch('/api/getUsername')
-      .then(res => res.json())
-      .then(user => this.setState({ username: user.username }));
-  }
-
   render() {
-    const { username } = this.state;
     return (
-      <div>
-        {username ? <h1>{`Hello ${username}`}</h1> : <h1>Loading.. please wait!</h1>}
-        
-      </div>
+      <MainContainer />
     );
   }
 }
